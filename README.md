@@ -1,6 +1,6 @@
-# 🎥 Maths & CS Algorithm Visualizations (Manim)
+# � Maths & CS Algorithm Visualizations
 
-An open-source project focused on visualizing **Mathematics** and **Computer Science algorithms** using Manim.
+An open-source project focused on visualizing **Mathematics** and **Computer Science algorithms** using **Manim** with an interactive **Streamlit** web interface.
 
 This repository aims to make abstract concepts intuitive by turning them into clean, meaningful animations — from math fundamentals to core CS algorithms.
 
@@ -12,6 +12,7 @@ This repository aims to make abstract concepts intuitive by turning them into cl
 
 - **Visualize Mathematical concepts** (Geometry, Calculus, Linear Algebra, Probability)
 - **Animate Computer Science algorithms** (Sorting, Searching, Graphs, DP, etc.)
+- **Interactive web interface** for easy rendering and playback
 - **Help learners understand logic, flow, and intuition**
 - **Encourage open-source learning through visuals**
 
@@ -20,21 +21,52 @@ This project is built for:
 - 🎓 Students
 - 👩‍🏫 Educators
 - 💻 Developers
-- 🧠 Anyone who loves learning visually
+- 🧠 Visual Learners
+
+---
+
+## ✨ Features
+
+### 🎬 Streamlit Web Interface (`app.py`)
+
+- **Interactive rendering**: Render animations directly from the browser
+- **Quality selection**: Choose from low, medium, high, or production quality
+- **Video gallery**: Browse and play all rendered animations
+- **Code viewer**: View animation source code within the app
+- **Real-time feedback**: See rendering progress and errors
+
+### 🎥 Animation Scenes (`main.py`)
+
+- **BeautifulIntro**: A comprehensive introduction animation showcasing:
+  - Project title and tagline
+  - Visual representations of math concepts and CS algorithms
+  - Target audience presentation
+  - Open-source learning message
+  - Beautiful closing with animated shapes
 
 ---
 
 ## 🧰 Requirements
 
-⚠️ **Python 3.12.10 ONLY**
+### System Requirements
 
-This project strictly uses **Python 3.12.10** to ensure compatibility with Manim.
+- **Python 3.12.10** (recommended for full compatibility)
+- **FFmpeg** (required for video rendering)
+- **System packages** (for Linux/Unix):
+  - `libcairo2-dev`
+  - `pkg-config`
+  - `python3-dev`
+  - `libpango1.0-dev`
 
-🔗 **Download**: https://www.python.org/downloads/release/python-31210/
+### Python Dependencies
+
+- **Manim** 0.19.1+ (animation engine)
+- **Streamlit** (web interface)
+- **Additional libraries**: NumPy, SciPy, Pillow, etc. (see `requirements.txt`)
 
 ---
 
-## 🚀 Installation & Setup (Using .venv)
+## 🚀 Installation & Setup
 
 ### 1️⃣ Create Virtual Environment
 
@@ -56,36 +88,102 @@ python -m venv .venv
 .venv\Scripts\activate.bat
 ```
 
+**Linux/Mac:**
+
+```bash
+source .venv/bin/activate
+```
+
 ### 3️⃣ Install Dependencies
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-**Verify Manim:**
+### 4️⃣ Verify Installation
 
 ```powershell
 manim --version
+streamlit --version
 ```
 
 ---
 
-## ▶️ Running Animations (Recommended)
+## ▶️ Usage
 
-We recommend **Medium Quality** for development and previews:
+### 🌐 Option 1: Streamlit Web Interface (Recommended)
+
+Launch the interactive web application:
+
+```powershell
+streamlit run app.py
+```
+
+This opens a browser interface where you can:
+
+- 🎬 Render animations with custom quality settings
+- 📁 View all previously rendered videos
+- 📝 Browse the source code
+- 🎥 Watch animations directly in the browser
+
+### 💻 Option 2: Command Line
+
+Render animations directly using Manim CLI:
 
 ```powershell
 manim -pqm main.py BeautifulIntro
 ```
 
-### Quality Presets
+#### Quality Presets
 
-- **`-pql`** → Low (fast preview)
-- **`-pqm`** → Medium (recommended)
-- **`-pqh`** → High (1080p)
-- **`-pqk`** → 4K (final export)
+- **`-pql`** → Low quality (480p15 - fast preview)
+- **`-pqm`** → Medium quality (720p30 - recommended)
+- **`-pqh`** → High quality (1080p60 - high definition)
+- **`-pqk`** → 4K quality (2160p60 - production)
 
-The `-p` flag automatically opens the rendered video.
+The `-p` flag automatically opens the rendered video after creation.
+
+---
+
+## 📁 Project Structure
+
+```
+Manim_Final_GitHub/
+├── app.py                  # Streamlit web interface
+├── main.py                 # Manim animation scenes
+├── requirements.txt        # Python dependencies
+├── packages.txt            # System packages (Linux)
+├── README.md               # Project documentation
+├── .gitignore              # Ignore rules
+├── .venv/                  # Virtual environment (ignored)
+├── __pycache__/            # Python cache (ignored)
+└── media/                  # Rendered outputs (ignored)
+    ├── images/             # Rendered images
+    ├── texts/              # Text outputs
+    └── videos/             # Rendered videos
+        └── main/
+            └── 720p30/     # Quality-specific videos
+```
+
+---
+
+## 🎨 Available Scenes
+
+### BeautifulIntro
+
+A comprehensive introduction scene that showcases:
+
+- **Project Title & Tagline**: "Seeing is Understanding"
+- **Vision Section**: Mathematical concepts and CS algorithms visualization
+- **Target Audience**: Students, Educators, Developers, Visual Learners
+- **Open Source Message**: Community-driven visual education
+- **Final Message**: Making math and algorithms beautiful and intuitive
+
+**Render command:**
+
+```powershell
+manim -pqm main.py BeautifulIntro
+```
 
 ---
 
@@ -98,53 +196,90 @@ We actively welcome contributions from the community ❤️
 - 📐 **Math visualizations** (formulas, theorems, concepts)
 - 🧠 **CS algorithms** (step-by-step logic animations)
 - ✨ **Better transitions**, layouts, or explanations
+- 🎨 **UI/UX improvements** for the Streamlit interface
 - 📖 **Educational clarity** through visuals
+- 🐛 **Bug fixes** and performance improvements
 
-### Contribution Rules
+### Contribution Guidelines
 
 ✅ **Please DO:**
 
-- Add new Manim scenes in Python
-- Focus on **logic + explanation**
+- Add new Manim scenes in `main.py`
+- Focus on **logic + explanation** in animations
 - Write **readable, commented code**
 - Test your animation before committing
+- Update this README if adding new features
+- Follow existing code style and structure
 
 ❌ **Please DO NOT:**
 
 - Upload rendered videos (`.mp4`, `.mov`, etc.)
 - Commit the `media/` directory
-- Commit `.venv/`, `__pycache__`, or local files
+- Commit `.venv/`, `__pycache__/`, or local files
+- Include personal or sensitive information
 
 All generated outputs are intentionally ignored via `.gitignore`.
 
 ---
 
-## 📁 Project Structure
-
-```
-.
-├── main.py              # Animation scenes
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
-├── .gitignore           # Ignore rules
-├── .venv/               # Virtual environment (ignored)
-└── media/               # Rendered videos (ignored)
-```
-
----
-
 ## 📚 Useful Resources
 
-- **Manim Docs** → https://docs.manim.community/
+- **Manim Documentation** → https://docs.manim.community/
 - **Manim Examples** → https://docs.manim.community/en/stable/examples.html
-- **Manim Discord** → https://www.manim.community/discord/
+- **Manim Discord Community** → https://www.manim.community/discord/
+- **Streamlit Documentation** → https://docs.streamlit.io/
+- **3Blue1Brown** (Manim creator) → https://www.3blue1brown.com/
 
 ---
 
-## 🌍 Community & License
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Manim not found:**
+
+- Ensure virtual environment is activated
+- Reinstall: `pip install manim`
+
+**FFmpeg errors:**
+
+- Install FFmpeg: https://ffmpeg.org/download.html
+- Verify: `ffmpeg -version`
+
+**Streamlit won't start:**
+
+- Check port availability (default: 8501)
+- Try: `streamlit run app.py --server.port 8502`
+
+**Rendering fails:**
+
+- Check scene name matches class name in `main.py`
+- Verify Python version: `python --version`
+- Check Manim logs for specific errors
+
+---
+
+## 📄 License
 
 This is an **open-source learning project** built with the goal of making  
 **Maths & Algorithms beautiful, visual, and intuitive.**
 
-**Fork it. Improve it. Teach with it.**  
+**Fork it. Improve it. Teach with it.**
+
+---
+
+## 🌍 Community
+
 Let's learn Maths + CS visually, together 🚀✨
+
+Made with ❤️ using **Manim** & **Streamlit**
+
+---
+
+## 🔗 Quick Links
+
+- **Report Issues**: [GitHub Issues](https://github.com/Hemang2208/Manim_Playground/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Hemang2208/Manim_Playground/discussions)
+- **Pull Requests**: [Contribute](https://github.com/Hemang2208/Manim_Playground/pulls)
+
+---
