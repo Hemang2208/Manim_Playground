@@ -1,17 +1,5 @@
-# System packages required for Manim on Linux/Unix systems
-# Note: These are automatically installed on cloud platforms like Streamlit Cloud
-
-# Cairo graphics library (for 2D graphics rendering)
 libcairo2-dev
-
-# Package config tool (for compiling)
 pkg-config
-
-# Python development headers
 python3-dev
-
-# Pango text rendering library
 libpango1.0-dev
-
-# FFmpeg for video encoding/processing
 ffmpeg
